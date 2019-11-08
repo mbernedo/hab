@@ -22,7 +22,7 @@
 </head>
 
 <body
-    style="background: url(images/fondo.png); background-repeat: repeat-x; background-size: 100% 100%; margin-top: 2%; margin: 0;">
+    style="background: url(images/fondo.png); background-repeat: repeat; background-size: 100% 100%; margin-top: 2%; margin: 0;">
     <nav class="navbar navbar-light justify-content-between">
         <spam class="navbar-brand letraW"><label style="margin-right: 20%;">Equipo</label><label>INICIAR SESION
                 /
@@ -36,43 +36,34 @@
             <div class="col-4">
                 <div class="text-center"><img src="images/libro.png" class="img-fluid" /></div>
                 <div class="text-center" style="margin-top: 15px;">
-                    <h4 class="letraW" style="margin-bottom: 0;">Paso 02</h4>
+                    <h4 class="letraW" style="margin-bottom: 0;">Paso 01</h4>
                 </div>
                 <div class="text-center"><img src="images/parte2.png" class="img-fluid" /> </div>
                 <div style="margin-top: 40px;">
-                    <label class="text-right letraW">Elige el puesto al que quieres llegar</label>
-                    <select class="form-control">
-                        <option class="selected"></option>
-                        <option>Weboncito junior</option>
-                        <option>Weboncito</option>
-                        <option>Weboncito senior</option>
-                    </select>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                            placeholder="Ingresa tu nombre y apellido">
+                    </div>
                 </div>
-                <div class="letraW" style="margin-top: 20px;"><label>Selecciona que habilidades posees</label></div>
-                <ul style="list-style: circle;" id="skills">
-                    <li type="circle" style="margin-top: 15px;">
-                        <div class="row">
-                            <select class="form-control col-10">
-                                <option class="selected"></option>
-                                <option>HTML</option>
-                                <option>CSS</option>
-                                <option>JS</option>
-                            </select>
-                            <a class="col-2" id="deleteSkill" href="javascript:void(0);"><i class="far fa-trash-alt fa-2x"></i></a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="text-right">
-                    <a href="javascript:void(0);" id="addSkill"><u>Agregar otra habilidad</u></a>
+                <div style="margin-top: 4\20px;">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingresa tu correo">
+                    </div>
                 </div>
-                <div class="form-check" style="margin-top: 40px;">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label letraW" for="defaultCheck1">
-                        Acepto terminos y condiciones
-                    </label>
+                <div style="margin-top: 20px;">
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1"
+                            placeholder="Confirmar contraseña">
+                    </div>
                 </div>
                 <div style="margin-top: 15px;">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">REGISTRARSE</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Siguiente</button>
                 </div>
             </div>
             <div class="col-4"></div>
@@ -87,7 +78,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1b0ba374a4.js" crossorigin="anonymous"></script>
     <script src="js/actions.js" crossorigin="anonymous"></script>
 </body>
 

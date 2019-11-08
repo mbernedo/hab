@@ -17,6 +17,26 @@ $('#carouselHabilidades').on('slide.bs.carousel', function(e) {
   }
 })
 
+$('#addSkill').click(function() {
+  $('#skills').append(
+    '<li type="circle" style="margin-top: 15px;">' +
+      '<div class="row">' +
+      '<select class="form-control col-10">' +
+      '<option class="selected"></option>' +
+      '<option>HTML</option>' +
+      '<option>CSS</option>' +
+      '<option>JS</option>' +
+      '</select>' +
+      '<a class="col-2" id="deleteSkill" href="javascript:void(0);"><i class="far fa-trash-alt fa-2x"></i></a>' +
+      '</div>' +
+      '</li>'
+  )
+})
+
+$(document).on('click', '#deleteSkill', function() {
+  $(this).parent().parent().remove()
+})
+
 $('#carouselCursos').on('slide.bs.carousel', function(e) {
   var $e = $(e.relatedTarget)
   var idx = $e.index()
