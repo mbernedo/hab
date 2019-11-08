@@ -2,101 +2,98 @@
 <html>
 
 <head>
+    <title>Hab</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-        @media (min-width: 768px) {
+        @font-face {
+            font-family: parrafo;
+            src: url('fonts/Arcon-Regular.otf');
+        }
 
-            /* show 3 items */
-            .carousel-inner .active,
-            .carousel-inner .active+.carousel-item,
-            .carousel-inner .active+.carousel-item+.carousel-item,
-            .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item,
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item,
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next,
-            .carousel-inner .carousel-item-prev {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-            }
-
-            .carousel-inner .active.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-                position: absolute;
-                top: 0;
-                right: -25%;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            /* left or forward direction */
-            .active.carousel-item-left+.carousel-item-next.carousel-item-left,
-            .carousel-item-next.carousel-item-left+.carousel-item,
-            .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item,
-            .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item,
-            .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            /* farthest right hidden item must be abso position for animations */
-            .carousel-inner .carousel-item-prev.carousel-item-right {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            /* right or prev direction */
-            .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
-            .carousel-item-prev.carousel-item-right+.carousel-item,
-            .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item,
-            .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item,
-            .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
-            }
+        @font-face {
+            font-family: titulo;
+            src: url('fonts/segoe-ui.ttf');
         }
     </style>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
-    <div style='padding: 25px; font-size: 13px; background-color: blue; width: 350px; color: white;'>
-        <div>
-            <p>Habilidades más relacionadas con HTML5</p>
-        </div>
-        <div>
-            <img class='img-fluid' src='images/jquery.png' />
-            <label>JQUERY</label>
-        </div>
-        <div>
-            <img class='img-fluid' src='images/scrum.png' />
-            <label>SCRUM</label>
-        </div>
-        <div>
-            <img class='img-fluid' src='images/ux.png' />
-            <label>UX DESIGN</label>
-        </div>
-        <div>
-            <img class='img-fluid' src='images/api.png' />
-            <label>API</label>
+<body
+    style="background: url(images/fondo.png); background-repeat: repeat-x; background-size: 100% 100%; margin-top: 2%; margin: 0;">
+    <nav class="navbar navbar-light justify-content-between">
+        <spam class="navbar-brand letraW"><label style="margin-right: 20%;">Equipo</label><label>INICIAR SESION
+                /
+                REGISTRO</label>
+        </spam>
+        <img class="my-2 my-sm-0" src="images/logo_diandra.png" />
+    </nav>
+    <div class="container" style="margin-top: 30px; padding: 20px;">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="text-center"><img src="images/libro.png" class="img-fluid" /></div>
+                <div class="text-center" style="margin-top: 15px;">
+                    <h4 class="letraW" style="margin-bottom: 0;">Paso 02</h4>
+                </div>
+                <div class="text-center"><img src="images/parte2.png" class="img-fluid" /> </div>
+                <div style="margin-top: 40px;">
+                    <label class="text-right letraW">Elige el puesto al que quieres llegar</label>
+                    <select class="form-control">
+                        <option class="selected"></option>
+                        <option>Weboncito junior</option>
+                        <option>Weboncito</option>
+                        <option>Weboncito senior</option>
+                    </select>
+                </div>
+                <div class="letraW" style="margin-top: 20px;"><label>Selecciona que habilidades posees</label></div>
+                <ul style="list-style: circle ;">
+                    <li type="circle" style="margin-top: 15px;">
+                        <div>
+                            <select class="form-control">
+                                <option class="selected"></option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>JS</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li type="circle" style="margin-top: 15px;">
+                        <div>
+                            <select class="form-control">
+                                <option class="selected"></option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>JS</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li type="circle" style="margin-top: 15px;">
+                        <div>
+                            <select class="form-control">
+                                <option class="selected"></option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>JS</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form-check" style="margin-top: 40px;">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label letraW" for="defaultCheck1">
+                        Acepto terminos y condiciones
+                    </label>
+                </div>
+                <div style="margin-top: 15px;">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">REGISTRARSE</button>
+                </div>
+            </div>
+            <div class="col-4"></div>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -106,28 +103,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>
-        $('#carouselExample').on('slide.bs.carousel', function (e) {
-
-            var $e = $(e.relatedTarget);
-            var idx = $e.index();
-            var itemsPerSlide = 4;
-            var totalItems = $('.carousel-item').length;
-
-            if (idx >= totalItems - (itemsPerSlide - 1)) {
-                var it = itemsPerSlide - (totalItems - idx);
-                for (var i = 0; i < it; i++) {
-                    // append slides to end
-                    if (e.direction == "left") {
-                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                    }
-                    else {
-                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="js/actions.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

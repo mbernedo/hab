@@ -1,17 +1,36 @@
-$('#carouselExample').on('slide.bs.carousel', function(e) {
+$('#carouselHabilidades').on('slide.bs.carousel', function(e) {
   var $e = $(e.relatedTarget)
   var idx = $e.index()
   var itemsPerSlide = 4
-  var totalItems = $('.carousel-item').length
+  var totalItems = $('.habilidades').length
 
   if (idx >= totalItems - (itemsPerSlide - 1)) {
     var it = itemsPerSlide - (totalItems - idx)
     for (var i = 0; i < it; i++) {
       // append slides to end
       if (e.direction == 'left') {
-        $('.carousel-item').eq(i).appendTo('.carousel-inner')
+        $('.habilidades').eq(i).appendTo('.inner-habilidades')
       } else {
-        $('.carousel-item').eq(0).appendTo('.carousel-inner')
+        $('.habilidades').eq(0).appendTo('.inner-habilidades')
+      }
+    }
+  }
+})
+
+$('#carouselCursos').on('slide.bs.carousel', function(e) {
+  var $e = $(e.relatedTarget)
+  var idx = $e.index()
+  var itemsPerSlide = 4
+  var totalItems = $('.cursos').length
+
+  if (idx >= totalItems - (itemsPerSlide - 1)) {
+    var it = itemsPerSlide - (totalItems - idx)
+    for (var i = 0; i < it; i++) {
+      // append slides to end
+      if (e.direction == 'left') {
+        $('.cursos').eq(i).appendTo('.inner-cursos')
+      } else {
+        $('.cursos').eq(0).appendTo('.inner-cursos')
       }
     }
   }
