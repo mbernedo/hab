@@ -41,24 +41,19 @@
                 <div class="text-center"><img src="images/parte2.png" class="img-fluid" /> </div>
                 <div style="margin-top: 40px;">
                     <label class="text-right letraW">Elige el puesto al que quieres llegar</label>
-                    <select class="form-control">
-                        <option class="selected"></option>
-                        <option>Weboncito junior</option>
-                        <option>Weboncito</option>
-                        <option>Weboncito senior</option>
+                    <select class="form-control" id="job">
+                        <option class="selected">---Seleccionar---</option>
                     </select>
                 </div>
                 <div class="letraW" style="margin-top: 20px;"><label>Selecciona que habilidades posees</label></div>
                 <ul style="list-style: circle;" id="skills">
                     <li type="circle" style="margin-top: 15px;">
                         <div class="row">
-                            <select class="form-control col-10">
-                                <option class="selected"></option>
-                                <option>HTML</option>
-                                <option>CSS</option>
-                                <option>JS</option>
+                            <select class="form-control col-10" id="skill">
+                                <option class="selected">---Seleccionar---</option>
                             </select>
-                            <a class="col-2" id="deleteSkill" href="javascript:void(0);"><i class="far fa-trash-alt fa-2x"></i></a>
+                            <a class="col-2" id="deleteSkill" href="javascript:void(0);"><i
+                                    class="far fa-trash-alt fa-2x"></i></a>
                         </div>
                     </li>
                 </ul>
@@ -87,6 +82,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/1b0ba374a4.js" crossorigin="anonymous"></script>
     <script src="js/actions.js" crossorigin="anonymous"></script>
 </body>
