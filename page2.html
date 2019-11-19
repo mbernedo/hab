@@ -49,10 +49,10 @@
                 <ul style="list-style: circle;" id="skills">
                     <li type="circle" style="margin-top: 15px;">
                         <div class="row">
-                            <select class="form-control col-10" id="skill">
+                            <select class="form-control skill col-10" id="skill">
                                 <option class="selected">---Seleccionar---</option>
                             </select>
-                            <a class="col-2" id="deleteSkill" href="javascript:void(0);"><i
+                            <a class="col-2 deleteSkill" href="javascript:void(0);"><i
                                     class="far fa-trash-alt fa-2x"></i></a>
                         </div>
                     </li>
@@ -67,7 +67,7 @@
                     </label>
                 </div>
                 <div style="margin-top: 15px;">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">REGISTRARSE</button>
+                    <button type="button" id="registro" class="btn btn-primary btn-lg btn-block">REGISTRARSE</button>
                 </div>
             </div>
             <div class="col-4"></div>
@@ -84,6 +84,7 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/1b0ba374a4.js" crossorigin="anonymous"></script>
+    <script src="js/backend.js" crossorigin="anonymous"></script>
     <script src="js/actions.js" crossorigin="anonymous"></script>
 </body>
 

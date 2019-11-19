@@ -39,31 +39,35 @@
                     <h4 class="letraW" style="margin-bottom: 0;">Paso 01</h4>
                 </div>
                 <div class="text-center"><img src="images/parte2.png" class="img-fluid" /> </div>
-                <div style="margin-top: 40px;">
+                <div style="margin-top: 50px;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput"
-                            placeholder="Ingresa tu nombre y apellido">
+                        <input type="text" id="name" class="form-control" placeholder="Ingresa tu nombre">
                     </div>
                 </div>
-                <div style="margin-top: 4\20px;">
+                <div style="margin-top: 30px;">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="text" id="lastname" class="form-control" placeholder="Ingresa tu apellido">
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-control" aria-describedby="emailHelp"
                             placeholder="Ingresa tu correo">
                     </div>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 30px;">
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                        <input type="password" id="password" class="form-control" placeholder="Contraseña">
                     </div>
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 30px;">
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1"
+                        <input type="password" id="confirmPassword" class="form-control"
                             placeholder="Confirmar contraseña">
                     </div>
                 </div>
-                <div style="margin-top: 15px;">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Siguiente</button>
+                <div style="margin-top: 30px;">
+                    <button type="button" id="saveUser" class="btn btn-primary btn-lg btn-block">Siguiente</button>
                 </div>
             </div>
             <div class="col-4"></div>
@@ -78,6 +82,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/user.js" crossorigin="anonymous"></script>
     <script src="js/actions.js" crossorigin="anonymous"></script>
 </body>
 
