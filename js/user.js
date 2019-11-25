@@ -23,6 +23,25 @@ $('#saveUser').click(() => {
       }
     })
     .then((response) => {
+      const req = {
+        email,
+        password
+      }
+      axios
+        .post(url + '/customers/login', req, {
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          }
+        })
+        .then((response) => {
+          localStorage.setItem('customerId', response.data.userId)
+          localStorage.setItem('token', response.data.id)
+          window.location.href = 'skills.html'
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+        .finally(() => {})
       console.log(response)
       alert('Registro correcto')
     })
