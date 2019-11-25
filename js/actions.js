@@ -39,7 +39,3 @@ $('#carouselCursos').on('slide.bs.carousel', (e) => {
 $(() => {
   $('[data-toggle="tooltip"]').tooltip()
 })
-
-$(document).on('click', '.deleteSkill', () => {
-  $(this).parent().parent().remove()
-})

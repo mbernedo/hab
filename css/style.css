@@ -6,6 +6,15 @@
   color: white !important;
 }
 
+#linkReg {
+  color: white;
+}
+a:hover,
+a:active,
+a:focus {
+  color: white;
+}
+
 .centrado {
   text-align: center !important;
 }

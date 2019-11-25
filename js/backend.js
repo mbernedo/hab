@@ -1,4 +1,12 @@
 var url = 'https://habapi.herokuapp.com/api'
+var customerId = localStorage.getItem('customerId')
+var token = localStorage.getItem('token')
+
+$(document).ready(function() {
+  if (!token || !customerId) {
+    window.location.href = 'login.html'
+  }
+})
 
 const getJobs = () => {
   axios
@@ -62,20 +70,60 @@ $('#addSkill').click(() => {
     .finally(() => {})
 })
 
-$('#registro').click(() => {
+$('#saveJobSkill').click(() => {
   if ($('#defaultCheck1').prop('checked')) {
-    const job = $('#job').val()
-    console.log(check)
+    const jobId = $('#job').val()
     var skills = []
+    var next = true
+    var i = 0
     $('.skill').map((index, data) => {
       skills.push(data.value)
     })
-    const res = {
-      job,
-      skills
+    console.log(skills)
+    const resJob = {
+      customerId,
+      jobId
     }
-    console.log(res)
+    axios
+      .post(url + '/customer-jobs', resJob, {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      .then(async (response) => {
+        console.log(response)
+        while (next && skills.length > i) {
+          const resSkill = {
+            customerId,
+            skillId: skills[i]
+          }
+          await axios
+            .post(url + '/customer-skills', resSkill, {
+              headers: {
+                'Access-Control-Allow-Origin': '*'
+              }
+            })
+            .then((response) => {
+              i++
+              alert('Se grabaron los skills y el job correctamente')
+              console.log(response)
+            })
+            .catch((error) => {
+              console.log(error)
+              next = false
+            })
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        alert(error.message)
+      })
+      .finally(() => {})
   } else {
     alert('Aceptar TyC')
   }
+})
+
+$(document).on('click', '.deleteSkill', function() {
+  $(this).parent().parent().remove()
 })
