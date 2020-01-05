@@ -1,76 +1,74 @@
-var url = 'https://habapi.herokuapp.com/api'
+var url = "https://habapi.herokuapp.com/api"
 
-$('#saveUser').click(() => {
-  const name = $('#name').val()
-  const lastName = $('#lastname').val()
-  const email = $('#email').val()
+$("#saveUser").click(() => {
+  const name = $("#name").val()
+  const email = $("#email").val()
   const password =
-    $('#password').val() === $('#confirmPassword').val() ? $('#password').val() : alert('Contraseñas no coinciden')
-  const sex = 'M'
-  const phoneNumber = $('#phoneNumber').val()
+    $("#password").val() === $("#confirmPassword").val()
+      ? $("#password").val()
+      : alert("Contraseñas no coinciden")
   const req = {
     name,
-    lastName,
     email,
-    password,
-    sex,
-    phoneNumber
+    password
   }
   axios
-    .post(url + '/customers', req, {
+    .post(url + "/customers", req, {
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        "Access-Control-Allow-Origin": "*"
       }
     })
-    .then((response) => {
+    .then(response => {
       const req = {
         email,
         password
       }
       axios
-        .post(url + '/customers/login', req, {
+        .post(url + "/customers/login", req, {
           headers: {
-            'Access-Control-Allow-Origin': '*'
+            "Access-Control-Allow-Origin": "*"
           }
         })
-        .then((response) => {
-          localStorage.setItem('customerId', response.data.userId)
-          localStorage.setItem('token', response.data.id)
-          window.location.href = 'skills.html'
+        .then(response => {
+          localStorage.setItem("customerId", response.data.userId)
+          localStorage.setItem("token", response.data.id)
+          Swal.fire("Success", "Registro correcto", "success")
+          window.location.href = "home.html"
         })
-        .catch((error) => {
+        .catch(error => {
+          Swal.fire("Error", "Ocurrió un error", "wrong")
           console.log(error)
         })
         .finally(() => {})
-      console.log(response)
-      alert('Registro correcto')
     })
-    .catch((error) => {
-      console.log(error)
+    .catch(error => {
+      Swal.fire("Error", "Ocurrió un error", "wrong")
       alert(error.message)
     })
     .finally(() => {})
 })
 
-$('#login').click(() => {
-  const email = $('#emailL').val()
-  const password = $('#passwordL').val()
+$("#login").click(() => {
+  const email = $("#emailL").val()
+  const password = $("#passwordL").val()
   const req = {
     email,
     password
   }
   axios
-    .post(url + '/customers/login', req, {
+    .post(url + "/customers/login", req, {
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        "Access-Control-Allow-Origin": "*"
       }
     })
-    .then((response) => {
-      localStorage.setItem('customerId', response.data.userId)
-      localStorage.setItem('token', response.data.id)
-      window.location.href = 'skills.html'
+    .then(response => {
+      localStorage.setItem("customerId", response.data.userId)
+      localStorage.setItem("token", response.data.id)
+      Swal.fire("Success", "Login correcto", "success")
+      window.location.href = "home.html"
     })
-    .catch((error) => {
+    .catch(error => {
+      Swal.fire("Error", "Credenciales incorrectas", "wrong")
       console.log(error)
     })
     .finally(() => {})

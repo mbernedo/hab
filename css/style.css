@@ -6,6 +6,18 @@
   color: white !important;
 }
 
+.imgSkills{
+  height: 40px;
+}
+
+.imgJobs{
+  height: 70px;
+}
+
+.imgCaca{
+  height: 20px;
+}
+
 #linkReg {
   color: white;
 }
