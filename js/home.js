@@ -12,7 +12,7 @@ const getAllCustomerInfo = () => {
   axios
     .get(url + "/customers/me", { headers: { Authorization: token } })
     .then(response => {
-      if (response.data.skills.length === 0) {
+      if (!response.data.skills) {
         window.location.href = "skills.html"
       }
       const name = response.data.name

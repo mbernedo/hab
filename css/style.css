@@ -27,6 +27,10 @@ a:focus {
   color: white;
 }
 
+html{
+  height: 100%;
+}
+
 .centrado {
   text-align: center !important;
 }
