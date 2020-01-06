@@ -19,10 +19,14 @@ const getAllCustomerInfo = () => {
       const job = response.data.job.name
       $("#curentName").text(name)
       $("#currentJob").text(job)
+      let cont = 1
       for (var data of response.data.skills) {
+        const active = cont === 1 ? "active" : ""
         const icono = data.icon
         $("#skills").append(
-          '<div class="carousel-item cursos col-3 active centrado">' +
+          '<div class="carousel-item cursos col-3 ' +
+            active +
+            ' centrado">' +
             '<div style="margin-bottom: 7px;">' +
             '<img class="img-fluid imgSkills" src="' +
             icono +
@@ -45,15 +49,16 @@ const getAllCustomerInfo = () => {
 
 const getAllCustomerJobsSkills = () => {
   axios
-    .get(url + "/jobs/skills", { headers: { Authorization: token } })
+    .get(url + "/jobs/skills?limit=5&weight=0.3", { headers: { Authorization: token } })
     .then(response => {
       let cont = 1
       for (var data of response.data) {
+        const active = cont === 1 ? "active" : ""
         cont++
-        console.log(data.hasIt)
+        console.log(data)
         const icono = data.icon
         $("#jobSkills").append(
-          `<div class="carousel-item habilidades col-md-3 active centrado">
+          `<div class="carousel-item habilidades col-md-3 ${active} centrado">
           <div
               style="border: lightblue solid 2px; padding: 5px; border-radius: 10px;">
               <div style="margin-bottom: 7px;">

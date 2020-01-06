@@ -26,7 +26,7 @@ const getJobs = () => {
 
 const getSkills = () => {
   axios
-    .get(url + "/skills")
+    .get(url + "/skills?filter[order]=name ASC")
     .then(response => {
       for (var data of response.data) {
         $("#skill").append(
@@ -53,7 +53,7 @@ $("#addSkill").click(() => {
       '">' +
       '<option class="selected">---Seleccionar---</option>' +
       "</select>" +
-      '<a class="col-2 deleteSkill" href="javascript:void(0);"><i' +
+      '<a class="col-2 deleteSkill letraW" href="javascript:void(0);"><i' +
       ' class="far fa-trash-alt fa-2x"></i></a>' +
       "</div>" +
       "</li>"
