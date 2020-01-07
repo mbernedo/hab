@@ -59,7 +59,7 @@ $("#addSkill").click(() => {
       "</li>"
   )
   axios
-    .get(url + "/skills")
+    .get(url + "/skills?filter[order]=name ASC")
     .then(response => {
       for (var data of response.data) {
         $("#" + selectId).append(
