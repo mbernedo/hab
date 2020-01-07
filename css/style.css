@@ -6,15 +6,15 @@
   color: white !important;
 }
 
-.imgSkills{
+.imgSkills {
   height: 40px;
 }
 
-.imgJobs{
+.imgJobs {
   height: 70px;
 }
 
-.imgCaca{
+.imgCaca {
   height: 20px;
 }
 
@@ -27,8 +27,19 @@ a:focus {
   color: white;
 }
 
-html{
+html, body {
   height: 100%;
+  overflow: auto;
+}
+
+.courseCard{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.imgRelated{
+  height: 30px;
+  margin: 2%;
 }
 
 .centrado {
@@ -62,8 +73,11 @@ html{
     display: block;
   }
 
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item,
   .carousel-inner
     .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
     + .carousel-item
@@ -82,7 +96,12 @@ html{
     transform: translate3d(0, 0, 0);
   }
 
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+  .carousel-inner
+    .active.carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
     position: absolute;
     top: 0;
     right: -25%;
@@ -95,8 +114,15 @@ html{
   .active.carousel-item-left + .carousel-item-next.carousel-item-left,
   .carousel-item-next.carousel-item-left + .carousel-item,
   .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+  .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item,
+  .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
     position: relative;
     transform: translate3d(-100%, 0, 0);
     visibility: visible;
@@ -116,8 +142,15 @@ html{
   .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
   .carousel-item-prev.carousel-item-right + .carousel-item,
   .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+  .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item,
+  .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
     position: relative;
     transform: translate3d(100%, 0, 0);
     visibility: visible;

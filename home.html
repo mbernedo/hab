@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body style="background: url(images/fondo_hab.jpeg); background-size: 100% 100%; margin-top: 2%; margin: 0;">
-    <nav class="navbar navbar-light bg-light justify-content-between">
+<body style="background: url(images/fondo_hab.jpeg); background-size: cover; margin-top: 2%; margin: 0;">
+    <nav class="navbar navbar-light justify-content-between">
         <!-- <spam class="navbar-brand">
         </spam>
         <img class="my-2 my-sm-0" src="images/logo_diandra.png" /> -->
@@ -31,7 +31,7 @@
         <div class="row ident">
             <div class="col-2">
                 <div>
-                    <img class="img-fluid" src="images/profile.png"/>
+                    <img class="img-fluid" src="images/profile.png" />
                     <label class="letraW" id="curentName"></label>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                             <label class="letraW">Habilidades por aprender</label>
                         </div>
                         <div>
-                            <div class="container-fluid">
+                            <div class="container-fluid" style="border-bottom: black solid 2px;">
                                 <div id="carouselHabilidades" class="carousel slide" data-ride="carousel"
                                     data-interval="0">
                                     <div class="carousel-inner inner-habilidades row w-100 mx-auto" id="jobSkills"
@@ -105,6 +105,25 @@
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div style='padding: 25px; font-size: 13px; width: 350px; color: white;'>
+                                        <div>
+                                            <p>Habilidades más relacionadas con <label id="skillSelected"></label></p>
+                                        </div>
+                                        <div id="relatedSkills"></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div style='padding: 25px; font-size: 13px; width: 350px; color: white;'>
+                                        <div>
+                                            <p>Cursos</p>
+                                        </div>
+                                        <div id="coursesSkills">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

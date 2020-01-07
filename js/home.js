@@ -1,6 +1,9 @@
 var url = "https://habapi.herokuapp.com/api"
 var customerId = localStorage.getItem("customerId")
 var token = localStorage.getItem("token")
+let courses = {}
+let related = {}
+let skillName = {}
 
 $(document).ready(function() {
   if (!token || !customerId) {
@@ -49,29 +52,27 @@ const getAllCustomerInfo = () => {
 
 const getAllCustomerJobsSkills = () => {
   axios
-    .get(url + "/jobs/skills?limit=5&weight=0.3", { headers: { Authorization: token } })
+    .get(url + "/jobs/skills?limit=5&weight=0.3", {
+      headers: { Authorization: token }
+    })
     .then(response => {
       let cont = 1
       for (var data of response.data) {
         const active = cont === 1 ? "active" : ""
+        courses[data.skillId] = data.courses
+        related[data.skillId] = data.related
+        skillName[data.skillId] = data.name
         cont++
-        console.log(data)
         const icono = data.icon
         $("#jobSkills").append(
           `<div class="carousel-item habilidades col-md-3 ${active} centrado">
           <div
               style="border: lightblue solid 2px; padding: 5px; border-radius: 10px;">
               <div style="margin-bottom: 7px;">
-                  <img class="img-fluid imgJobs" data-toggle="tooltip"
-                      data-placement="right" title="<div style='padding: 25px; font-size: 13px; background-color: blue; width: 350px; color: white;'>
-                      <div>
-                          <p>Habilidades más relacionadas</p>
-                      </div>
-                      <div>
-                          <img class='img-fluid' src='images/jquery.png' />
-                          <label>JQUERY</label>
-                      </div>
-                  </div>" data-html="true" src="${icono}" />
+                  <a href="javascript:void(0)"><img class="img-fluid imgJobs skillDetail" id="${
+                    data.skillId
+                  }" src="${icono}" />
+                  </a>
               </div>
           </div>
           <div>
@@ -94,9 +95,6 @@ const getAllCustomerJobsSkills = () => {
       </div>`
         )
       }
-      $("body").tooltip({
-        selector: "[rel=tooltip]"
-      })
     })
     .catch(error => {
       console.log(error)
@@ -106,3 +104,47 @@ const getAllCustomerJobsSkills = () => {
 
 getAllCustomerInfo()
 getAllCustomerJobsSkills()
+
+function getRelated(id) {
+  $("#skillSelected").html(skillName[id])
+  let relatedChain = ""
+  if (related[id].length === 0) {
+    relatedChain = "No hay habilidades relacionadas"
+  } else {
+    for (const relate of related[id]) {
+      relatedChain += `<div>
+    <img class='img-fluid imgRelated' src='${relate.icon}'/>
+    <label>${relate.name}</label>
+  </div>`
+    }
+  }
+  $("#relatedSkills").html(relatedChain)
+}
+
+function getCourses(id) {
+  // $("#skillSelected").html(skillName[id])
+  let courseChain = ""
+  if (courses[id].length === 0) {
+    courseChain = "No hay cursos"
+  } else {
+    for (const course of courses[id]) {
+      courseChain += `<div style="width: 18rem; border: white solid 2px;" class="courseCard">
+    <div class="card-body">
+        <a target="_blank"
+            href='${course.url}'><img
+                class='img-fluid imgRelated'
+                src='${course.icon}' /></a>
+        <label>${course.name}</label>
+        <a target="_blank" class="letraW btn btn-dark" href="${course.url}">Ir al curso</a>
+    </div>
+</div>`
+    }
+  }
+  $("#coursesSkills").html(courseChain)
+}
+console.log(courses)
+$(document).on("click", ".skillDetail", function() {
+  const id = $(this).attr("id")
+  getRelated(id)
+  getCourses(id)
+})
