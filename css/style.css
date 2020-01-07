@@ -27,17 +27,22 @@ a:focus {
   color: white;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow: auto;
 }
 
-.courseCard{
+.skillSelected {
+  box-shadow: 20px 20px 22px 1px rgba(0, 0, 0, 0.98);
+}
+
+.courseCard {
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
-.imgRelated{
+.imgRelated {
   height: 30px;
   margin: 2%;
 }

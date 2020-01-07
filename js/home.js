@@ -67,7 +67,7 @@ const getAllCustomerJobsSkills = () => {
         $("#jobSkills").append(
           `<div class="carousel-item habilidades col-md-3 ${active} centrado">
           <div
-              style="border: lightblue solid 2px; padding: 5px; border-radius: 10px;">
+              style="border: white solid 2px; padding: 5px; border-radius: 10px;">
               <div style="margin-bottom: 7px;">
                   <a href="javascript:void(0)"><img class="img-fluid imgJobs skillDetail" id="${
                     data.skillId
@@ -142,8 +142,15 @@ function getCourses(id) {
   }
   $("#coursesSkills").html(courseChain)
 }
-console.log(courses)
+
 $(document).on("click", ".skillDetail", function() {
+  $(".centrado").removeClass("skillSelected")
+  $(this)
+    .parent()
+    .parent()
+    .parent()
+    .parent()
+    .addClass("skillSelected")
   const id = $(this).attr("id")
   getRelated(id)
   getCourses(id)
