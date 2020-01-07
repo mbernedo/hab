@@ -16,15 +16,26 @@ const getAllCustomerInfo = () => {
     .get(url + "/customers/me", { headers: { Authorization: token } })
     .then(response => {
       if (!response.data.skills) {
-        window.location.href = "skills.html"
+        Swal.fire({
+          title: "Error",
+          text: "Debe registrar sus habilidades",
+          icon: "error",
+          confirmButtonText: "Ir a registro de habilidades"
+        }).then(result => {
+          if (result.value) {
+            window.location.href = "skills.html"
+          }
+        })
       }
       const name = response.data.name
       const job = response.data.job.name
       $("#curentName").text(name)
       $("#currentJob").text(job)
       let cont = 1
+      console.log(response)
       for (var data of response.data.skills) {
         const active = cont === 1 ? "active" : ""
+        cont++
         const icono = data.icon
         $("#skills").append(
           '<div class="carousel-item cursos col-3 ' +
@@ -152,4 +163,10 @@ $(document).on("click", ".skillDetail", function() {
   const id = $(this).attr("id")
   getRelated(id)
   getCourses(id)
+})
+
+$("#logout").click(function() {
+  localStorage.removeItem("customerId")
+  localStorage.removeItem("token")
+  window.location.href = "login.html"
 })

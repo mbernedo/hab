@@ -109,9 +109,9 @@ $("#saveJobSkill").click(() => {
               i++
               if (i === skills.length) {
                 Swal.fire(
-                  'Success',
-                  'Se registró correctamente la información',
-                  'success'
+                  "Success",
+                  "Se registró correctamente la información",
+                  "success"
                 )
                 window.location.href = "home.html"
               }
@@ -119,17 +119,21 @@ $("#saveJobSkill").click(() => {
             .catch(error => {
               console.log(error)
               next = false
-              Swal.fire("Error", "Ocurrió un error", "wrong")
+              Swal.fire("Error", "Ocurrió un error", "error")
             })
         }
       })
       .catch(error => {
         console.log(error)
-        Swal.fire("Error", "Ocurrió un error", "wrong")
+        Swal.fire("Error", "Ocurrió un error", "error")
       })
       .finally(() => {})
   } else {
-    alert("Aceptar TyC")
+    Swal.fire(
+      "Error",
+      "Debe aceptar los términos y condiciones para poder continuar",
+      "error"
+    )
   }
 })
 
@@ -138,4 +142,10 @@ $(document).on("click", ".deleteSkill", function() {
     .parent()
     .parent()
     .remove()
+})
+
+$("#logout").click(function() {
+  localStorage.removeItem("customerId")
+  localStorage.removeItem("token")
+  window.location.href = "login.html"
 })
