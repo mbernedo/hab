@@ -9,7 +9,6 @@ $("#login").click(() => {
 })
 
 $(document).keypress(e => {
-  console.log(window.location.pathname)
   if (e.which === 13) {
     if (
       window.location.pathname === "/hab/login.html" ||
@@ -56,7 +55,7 @@ function register() {
   const password =
     $("#password").val() === $("#confirmPassword").val()
       ? $("#password").val()
-      : alert("Contraseñas no coinciden")
+      : Swal.fire("Error", "Contraseñas no coinciden", "error")
   const req = {
     name,
     email,
@@ -92,7 +91,6 @@ function register() {
     })
     .catch(error => {
       Swal.fire("Error", "Ocurrió un error", "error")
-      alert(error.message)
     })
     .finally(() => {})
 }
