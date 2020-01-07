@@ -57,7 +57,11 @@ const getAllCustomerJobsSkills = () => {
     })
     .then(response => {
       let cont = 1
+      let hasNot = 0
       for (var data of response.data) {
+        if (!data.hasIt) {
+          hasNot++
+        }
         const active = cont === 1 ? "active" : ""
         courses[data.skillId] = data.courses
         related[data.skillId] = data.related
@@ -81,13 +85,6 @@ const getAllCustomerJobsSkills = () => {
               }</label>
           </div>
           <div>
-              <label class="letraW" style="font-size: 10px;">${
-                cont % 2 === 0
-                  ? 'Estudialo aqui: <img class="img-fluid imgCaca" src="https://www.seekpng.com/png/detail/222-2223575_udemy-logo-png-transparent-udemy-logo-png.png"'
-                  : 'Estudialo aqui: <img class="img-fluid imgCaca" src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/media/coursera-logo-square.png?auto=format%2Ccompress&dpr=1" />'
-              }</label>
-          </div>
-          <div>
               <label class="letraW" style="font-size: 35px;">${
                 data.hasIt ? "✓" : ""
               }</label>
@@ -95,6 +92,7 @@ const getAllCustomerJobsSkills = () => {
       </div>`
         )
       }
+      $("#learnSkill").html(hasNot)
     })
     .catch(error => {
       console.log(error)
