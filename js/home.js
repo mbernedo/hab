@@ -5,7 +5,7 @@ let courses = {}
 let related = {}
 let skillName = {}
 
-$(document).ready(function() {
+$(document).ready(function () {
   if (!token || !customerId) {
     window.location.href = "login.html"
   }
@@ -32,33 +32,39 @@ const getAllCustomerInfo = () => {
       $("#curentName").text(name)
       $("#currentJob").text(job)
       let cont = 1
-      console.log(response)
       for (var data of response.data.skills) {
+        console.log(data)
+        const level = `images/nivel${data.level}.png`
         const active = cont === 1 ? "active" : ""
         cont++
         const icono = data.icon
         $("#skills").append(
           '<div class="carousel-item cursos col-3 ' +
-            active +
-            ' centrado">' +
-            '<div style="margin-bottom: 7px;">' +
-            '<img class="img-fluid imgSkills" src="' +
-            icono +
-            '"/>' +
-            "</div>" +
-            "<div>" +
-            '<label class="letraW">' +
-            data.name +
-            "</label>" +
-            "</div>" +
-            "</div>"
+          active +
+          ' centrado">' +
+          '<div style="margin-bottom: 7px;">' +
+          '<img class="img-fluid imgSkills" src="' +
+          icono +
+          '"/>' +
+          "</div>" +
+          '<div style="margin-bottom: 7px;">' +
+          '<img class="img-fluid imgSkills" src="' +
+          level +
+          '"/>' +
+          "</div>" +
+          "<div>" +
+          '<label class="letraW">' +
+          data.name +
+          "</label>" +
+          "</div>" +
+          "</div>"
         )
       }
     })
     .catch(error => {
       console.log(error)
     })
-    .finally(() => {})
+    .finally(() => { })
 }
 
 const getAllCustomerJobsSkills = () => {
@@ -85,20 +91,20 @@ const getAllCustomerJobsSkills = () => {
               style="border: white solid 2px; padding: 5px; border-radius: 10px;">
               <div style="margin-bottom: 7px;">
                   <a href="javascript:void(0)"><img class="img-fluid imgJobs skillDetail" id="${
-                    data.skillId
-                  }" src="${icono}" />
+          data.skillId
+          }" src="${icono}" />
                   </a>
               </div>
           </div>
           <div>
               <label class="letraW" style="font-size: 10px;">${
-                data.name
-              }</label>
+          data.name
+          }</label>
           </div>
           <div>
               <label class="letraW" style="font-size: 35px;">${
-                data.hasIt ? "✓" : ""
-              }</label>
+          data.hasIt ? "✓" : ""
+          }</label>
           </div>
       </div>`
         )
@@ -108,7 +114,7 @@ const getAllCustomerJobsSkills = () => {
     .catch(error => {
       console.log(error)
     })
-    .finally(() => {})
+    .finally(() => { })
 }
 
 getAllCustomerInfo()
@@ -152,7 +158,7 @@ function getCourses(id) {
   $("#coursesSkills").html(courseChain)
 }
 
-$(document).on("click", ".skillDetail", function() {
+$(document).on("click", ".skillDetail", function () {
   $(".centrado").removeClass("skillSelected")
   $(this)
     .parent()
@@ -165,7 +171,7 @@ $(document).on("click", ".skillDetail", function() {
   getCourses(id)
 })
 
-$("#logout").click(function() {
+$("#logout").click(function () {
   localStorage.removeItem("customerId")
   localStorage.removeItem("token")
   window.location.href = "login.html"

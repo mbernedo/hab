@@ -40,17 +40,21 @@
                     </select>
                 </div>
                 <div class="letraW" style="margin-top: 20px;"><label>Selecciona que habilidades posees</label></div>
-                <ul style="list-style: circle;" id="skills">
-                    <li type="circle" style="margin-top: 15px;">
-                        <div class="row">
-                            <select class="form-control skill col-10" id="skill">
-                                <option class="selected">---Seleccionar---</option>
-                            </select>
-                            <a class="col-2 deleteSkill letraW" href="javascript:void(0);"><i
-                                    class="far fa-trash-alt fa-2x"></i></a>
-                        </div>
-                    </li>
-                </ul>
+                <div style="padding-left: 15px;" id="skills">
+                    <div class="row" style="margin-bottom: 1rem;">
+                        <select class="form-control skill col-6" id="skill">
+                            <option class="selected">---Seleccionar---</option>
+                        </select>
+                        <select class="form-control level col-4" id="level">
+                            <option class="selected">--Nivel--</option>
+                            <option value="1" class="selected">Básico</option>
+                            <option value="2" class="selected">Intermedio</option>
+                            <option value="3" class="selected">Avanzado</option>
+                        </select>
+                        <a class="col-2 deleteSkill letraW" href="javascript:void(0);"><i
+                                class="far fa-trash-alt fa-2x"></i></a>
+                    </div>
+                </div>
                 <div class="text-right">
                     <a href="javascript:void(0);" class="letraW" id="addSkill"><u>Agregar otra habilidad</u></a>
                 </div>

@@ -2,7 +2,7 @@ var url = "https://habapi.herokuapp.com/api"
 var customerId = localStorage.getItem("customerId")
 var token = localStorage.getItem("token")
 
-$(document).ready(function() {
+$(document).ready(function () {
   if (!token || !customerId) {
     window.location.href = "login.html"
   }
@@ -21,7 +21,7 @@ const getJobs = () => {
     .catch(error => {
       console.log(error)
     })
-    .finally(() => {})
+    .finally(() => { })
 }
 
 const getSkills = () => {
@@ -37,7 +37,7 @@ const getSkills = () => {
     .catch(error => {
       console.log(error)
     })
-    .finally(() => {})
+    .finally(() => { })
 }
 
 getJobs()
@@ -46,17 +46,21 @@ getSkills()
 var selectId = 0
 $("#addSkill").click(() => {
   $("#skills").append(
-    '<li type="circle" style="margin-top: 15px;">' +
-      '<div class="row">' +
-      '<select class="form-control skill col-10" id="' +
-      selectId +
-      '">' +
-      '<option class="selected">---Seleccionar---</option>' +
-      "</select>" +
-      '<a class="col-2 deleteSkill letraW" href="javascript:void(0);"><i' +
-      ' class="far fa-trash-alt fa-2x"></i></a>' +
-      "</div>" +
-      "</li>"
+    '<div class="row" style="margin-bottom: 1rem;">' +
+    '<select class="form-control skill col-6 " id="' +
+    selectId +
+    '">' +
+    '<option class="selected">---Seleccionar---</option>' +
+    "</select>" +
+    '<select class="form-control level col-4" id="level">' +
+    '<option class="selected">--Nivel--</option>' +
+    '<option value="1" class="selected">Básico</option>' +
+    '<option value="2" class="selected">Intermedio</option>' +
+    '<option value="3" class="selected">Avanzado</option>' +
+    '</select>' +
+    '<a class="col-2 deleteSkill letraW" href="javascript:void(0);"><i' +
+    ' class="far fa-trash-alt fa-2x"></i></a>' +
+    "</div>"
   )
   axios
     .get(url + "/skills?filter[order]=name ASC")
@@ -71,17 +75,21 @@ $("#addSkill").click(() => {
     .catch(error => {
       console.log(error)
     })
-    .finally(() => {})
+    .finally(() => { })
 })
 
 $("#saveJobSkill").click(() => {
   if ($("#defaultCheck1").prop("checked")) {
     const jobId = $("#job").val()
     var skills = []
+    var levels = []
     var next = true
     var i = 0
-    $(".skill").map((index, data) => {
-      skills.push(data.value)
+    $(".skill").map((index, skill) => {
+      skills.push(skill.value)
+    })
+    $(".level").map((index, level) => {
+      levels.push(level.value)
     })
     const resJob = {
       customerId,
@@ -97,7 +105,8 @@ $("#saveJobSkill").click(() => {
         while (next && skills.length > i) {
           const resSkill = {
             customerId,
-            skillId: skills[i]
+            skillId: skills[i],
+            level: levels[i]
           }
           await axios
             .post(url + "/customer-skills", resSkill, {
@@ -127,7 +136,7 @@ $("#saveJobSkill").click(() => {
         console.log(error)
         Swal.fire("Error", "Ocurrió un error", "error")
       })
-      .finally(() => {})
+      .finally(() => { })
   } else {
     Swal.fire(
       "Error",
@@ -137,14 +146,14 @@ $("#saveJobSkill").click(() => {
   }
 })
 
-$(document).on("click", ".deleteSkill", function() {
+$(document).on("click", ".deleteSkill", function () {
   $(this)
     .parent()
     .parent()
     .remove()
 })
 
-$("#logout").click(function() {
+$("#logout").click(function () {
   localStorage.removeItem("customerId")
   localStorage.removeItem("token")
   window.location.href = "login.html"
